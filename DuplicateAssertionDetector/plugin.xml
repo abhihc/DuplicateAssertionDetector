@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="DuplicateAssertionDetector.commands.category"
+            name="Sample Category">
+      </category>
+      <command
+            categoryId="DuplicateAssertionDetector.commands.category"
+            name="Test Case Redundancy"
+            id="DuplicateAssertionDetector.commands.sampleCommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="duplicateassertiondetector.handlers.DuplicateAssertionDetectorHandler"
+            commandId="DuplicateAssertionDetector.commands.sampleCommand">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="DuplicateAssertionDetector.commands.sampleCommand"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="menu:org.eclipse.ui.main.menu?after=additions">
+         <menu
+               id="DuplicateAssertionDetector.menus.sampleMenu"
+               label="Duplicate Assertion"
+               mnemonic="M">
+            <command
+                  commandId="DuplicateAssertionDetector.commands.sampleCommand"
+                  id="DuplicateAssertionDetector.menus.sampleCommand"
+                  mnemonic="S">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
+
+</plugin>
